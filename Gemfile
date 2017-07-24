@@ -40,11 +40,18 @@ gem 'devise-bootstrap-views'
 
 #
 ## Bootstrap: Styling
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap-sass', '~> 3.3.6'
+# gem 'sass-rails', '>= 3.2'
+# gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'sprockets-rails'
 
 #
 ## jQuery: Styling and Behavior
 gem 'jquery-rails'
+
+#
+## FontAwesome: Styling
+gem 'font-awesome-rails'
 
 
 group :development, :test do

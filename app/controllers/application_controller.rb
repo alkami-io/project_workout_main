@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   #
   ## Return User Home after Successfully logging out
-  def after_sign_in_path_for(resource_or_scope)
+  def after_sign_out_path_for(resource_or_scope)
     root_path
   end
 
@@ -19,5 +19,4 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :starting_weight, :current_weight, :height, :age])
   end
-
 end

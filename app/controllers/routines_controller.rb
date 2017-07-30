@@ -20,4 +20,23 @@ class RoutinesController < ApplicationController
   def new
 
   end
+
+  def create
+    options =  {
+      query: {
+        api_key: ENV['AF_ROUTINES_API_KEY'],
+      },
+      body: {
+        user_id: current_user.id,
+        name: params[:name],
+        focus: 1
+      }
+
+    }
+
+    response = RoutinesAPI.new
+    @new_routine_path = response.new_routine(options)
+
+    redirect_to request.referer
+  end
 end

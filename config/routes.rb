@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   #
   ## Routine Routes
-  resources :routines, only: [:index, :show, :new, :edit]
+  resources :routines, only: [:show, :create, :edit]
 
   #
   ## Template Routes

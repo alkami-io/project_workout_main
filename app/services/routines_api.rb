@@ -21,7 +21,7 @@ class RoutinesAPI
 
   def new_routine(options)
     options = options
-    self.class.post('/routines', options).deep_symbolize_keys
+    self.class.post('/routines', options)
   end
 
 

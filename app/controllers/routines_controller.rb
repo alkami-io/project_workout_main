@@ -29,7 +29,7 @@ class RoutinesController < ApplicationController
       body: {
         user_id: current_user.id,
         name: params[:name],
-        focus: 1
+        focus: params[:focus]
       }
 
     }

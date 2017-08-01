@@ -6,19 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AlkamiFit - Main</title>
 
-  <!-- Include style per-controller - vendor plugins -->
-  <%#= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.scss") %>
-
   <!-- Main css styles -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <!-- Main javascript files -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
-
-
 </head>
+
 <body>
 
 <% if user_signed_in? %>
@@ -112,8 +107,6 @@
 
   </div>
   <!-- End wrapper-->
-
-
 
 <% end %>
 

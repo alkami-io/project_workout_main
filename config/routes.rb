@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   #
   ## User Routes
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:show]
 
   #
   ## Routine Routes

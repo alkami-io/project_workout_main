@@ -19,19 +19,11 @@ class RoutinesAPI
     self.class.get("/routines/#{routine_id}", options).deep_symbolize_keys
   end
 
-  def new_routine(options)
+  #
+  ## Add New Routine to RoutineAPI
+  def add_routine(options)
     options = options
     self.class.post('/routines', options)
   end
 
-
 end
-
-=begin
-HTTParty.post("https://www.gittip.com/#{user}/tips.json",
-  {
-    :body => [ { "amount" => "0.25", "platform" => "gittip", "username" => "whit537" } ].to_json,
-    :basic_auth => { :username => api_key },
-    :headers => { 'Content-Type' => 'application/json', 'Accept' => 'application/json'}
-  })
-=end

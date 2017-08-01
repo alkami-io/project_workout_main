@@ -1,10 +1,6 @@
 class RoutinesController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-
-  end
-
   def show
     options =  {
       query: {
@@ -17,10 +13,6 @@ class RoutinesController < ApplicationController
     @routine = response.routine(options, params[:id])
   end
 
-  def new
-
-  end
-
   def create
     options =  {
       query: {
@@ -29,14 +21,14 @@ class RoutinesController < ApplicationController
       body: {
         user_id: current_user.id,
         name: params[:name],
-        focus: 1
+        focus: params[:focus]
       }
-
     }
 
     response = RoutinesAPI.new
-    @new_routine_path = response.new_routine(options)
+    response.add_routine(options)
 
     redirect_to request.referer
   end
+
 end

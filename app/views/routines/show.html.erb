@@ -5,8 +5,11 @@
       <li>
         <%= link_to 'Home', root_path %>
       </li>
+      <li>
+        <%= link_to 'Profile', user_path(current_user) %>
+      </li>
       <li class="active">
-        <strong>Profile</strong>
+        <strong>Routine Detail</strong>
       </li>
     </ol>
   </div>
@@ -21,18 +24,13 @@
       <div class="col-sm-8">
         <div class="ibox">
           <div class="ibox-content">
-            <h2>Fitness Plan</h2>
-            <p>
-              See your Workouts, Routines and Exercises
-            </p>
+            <h2>Routine Details</h2>
+
 
             <div class="clients-list">
               <!--Start Tabs-->
               <ul class="nav nav-tabs">
-                <span class="pull-right small text-muted">1406 Elements</span>
-                <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i> Workouts</a></li>
-                <li class=""><a data-toggle="tab" href="#tab-2"><i class="fa fa-briefcase"></i> Routines </a></li>
-                <li class=""><a data-toggle="tab" href="#tab-3"><i class="fa fa-briefcase"></i> Exercises</a></li>
+                <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i> Details</a></li>
               </ul><!--End Tabs-->
 
               <!--Start Tabs Content-->
@@ -51,91 +49,16 @@
                         </thead>
                         <tbody>
                           <tr>
-
+                            <td><%= @routine[:data][:id] %></td>
+                            <td><%= @routine[:data][:attributes][:name] %></td>
+                            <td><%= @routine[:data][:attributes][:focus] %></td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div><!--End Tab 1-->
-
-                <!--Start Tab 2-->
-                <div id="tab-2" class="tab-pane">
-                  <div class="full-height-scroll">
-                    <div class="table-responsive">
-                      <table class="table table-striped table-hover">
-                        <thead>
-                          <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th><div class="text-center">
-                              <a data-toggle="modal" class="btn btn-primary" href="#addRoutineForm">Add Routine</a>
-                            </div></th>
-                          </tr>
-                        </thead>
-
-                        <tbody>
-                          <% @routines.each do |routine| %>
-                            <tr>
-                              <td><%= link_to routine[:id], routine_path(routine) %></td>
-                              <td><%= routine[:attributes][:name] %></td>
-                              <td><%= routine[:attributes][:focus] %></td>
-                              <td></td>
-                            </tr>
-                          <% end %>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <!--End Tab 2-->
-
-                <!--Start Tab 3-->
-                <div id="tab-3" class="tab-pane">
-                  <div class="full-height-scroll">
-                    <div class="table-responsive">
-                      <table class="table table-striped table-hover">
-                        <thead>
-                        <tr>
-                          <th>ID</th>
-                          <th>Name</th>
-                          <th>Type</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-
-                        </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <!--End Tab 3-->
               </div><!--End Tabs Content-->
-
-              <!--Start Modal Content-->
-              <div class="ibox-content">
-                <div id="addRoutineForm" class="modal fade" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <div class="row">
-                          <div class="col-sm-12 b-r"><h3 class="m-t-none m-b">Create New Routine</h3>
-                            <%= form_tag({controller: "routines", action: "create"}, method: "post") do %>
-                              <%= label_tag(:name, "Routine Name: ") %>
-                              <%= text_field_tag(:name) %><br>
-                              <%= submit_tag("Add") %>
-                            <% end %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div><!--End Modal Content-->
-
             </div>
           </div>
         </div>
@@ -970,5 +893,4 @@
       </div>
     </div>
   </div>
-
 </div>

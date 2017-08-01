@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update]
 
   #
+  ## Routine Routes
+  resources :routines, only: [:show, :create, :edit]
+
+  #
   ## Template Routes
   # All routes
   get "dashboards/dashboard_1"
